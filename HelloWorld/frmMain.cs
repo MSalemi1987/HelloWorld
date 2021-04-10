@@ -190,6 +190,8 @@ namespace HelloWorld
             }
         }
 
+      
+        
         private void txtlog_TextChanged(object sender, EventArgs e)
         {
 

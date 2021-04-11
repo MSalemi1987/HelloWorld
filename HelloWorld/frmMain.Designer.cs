@@ -310,7 +310,8 @@ namespace HelloWorld
             this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btn1);
             this.Name = "frmMain";
-            this.Text = "Project Hello V 1.0";
+            this.Text = "Project Hello V 1.1";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

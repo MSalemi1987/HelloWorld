@@ -220,5 +220,10 @@ namespace HelloWorld
                 txtlog.AppendText(num1+"!="+num2 + Environment.NewLine);
             }
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

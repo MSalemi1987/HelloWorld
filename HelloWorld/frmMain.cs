@@ -14,63 +14,15 @@ namespace HelloWorld
     public partial class frmMain : Form
     {
         private double Pi = 3.14;
-        private int k;
-        private int num1 = 0;
-        private int num2 = 0;
+        private Double k;
+        private Double num1 = 0;
+        private Double num2 = 0;
         private string oper;
         public frmMain()
         {
             InitializeComponent();
         }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-
-            this.k = sum(1, 4);
-            Debug.WriteLine(k);
-            //MessageBox.Show("Ke=  " + k);
-
-
-        }
-
-        private int sum(int x, int y)
-        {
-            int s = x + y;
-            return s;
-
-        }
-
-        private void btnSum_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine(this.k);
-            MessageBox.Show("Ke=  " + this.k);
-        }
-
-        private void btnCalculate_Click(object sender, EventArgs e)
-        {
-            var res = "Salam " + txtInput.Text;
-            lblResult.Text = res;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var res = txtInput1.Text + "  " + txtInput2.Text;
-            lblMerge.Text = res;
-        }
-
-        private void Result_Click(object sender, EventArgs e)
-        {
-            var a = double.Parse(txtFirstNumber.Text) + double.Parse(txtSecondNumber.Text);
-            lblSum.Text = a.ToString();
-        }
-
-        private void txtFirstNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void btn1_Click(object sender, EventArgs e)
+            private void btn1_Click(object sender, EventArgs e)
         {
             txtshow.AppendText("1");
         }
@@ -129,10 +81,10 @@ namespace HelloWorld
         {
             if (txtshow.Text.Length > 0)
             {
-                num1 = int.Parse(txtshow.Text);
+                num1 = Double.Parse(txtshow.Text);
                 txtshow.Text = "";
                 oper = "+";
-                txtlog.AppendText(num1.ToString() + Environment.NewLine + "+" + Environment.NewLine);
+                txtlog.AppendText(num1.ToString() + "+" );
             }
         }
 
@@ -140,35 +92,48 @@ namespace HelloWorld
         {
             if (txtshow.Text.Length > 0)
             {
-                num1 = int.Parse(txtshow.Text);
+                num1 = Double.Parse(txtshow.Text);
                 txtshow.Text = "";
                 oper = "-";
-                txtlog.AppendText(num1.ToString() + Environment.NewLine + "-" + Environment.NewLine);
+                txtlog.AppendText(num1.ToString()  + "-");
             }
+        
         }
+
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
             if (txtshow.Text.Length > 0)
             {
-                num2 = int.Parse(txtshow.Text);
-                txtlog.AppendText(num2.ToString() + Environment.NewLine + "=" + Environment.NewLine);
+                num2 = Double.Parse(txtshow.Text);
+                txtlog.AppendText(num2.ToString() + "=");
                 if (oper == "+")
                 {
-                    txtshow.Text = (num1 + num2).ToString();
-                    txtlog.AppendText((num1 + num2).ToString() + Environment.NewLine);
-                }
+                    txtshow.Text = (num1 + num2).ToString("0.00");
+                    txtlog.AppendText((num1 + num2).ToString("0.00") + Environment.NewLine);
+                         }
                 else if (oper == "-")
                 {
-                    txtshow.Text = (num1 - num2).ToString();
-                    txtlog.AppendText((num1 - num2).ToString() + Environment.NewLine);
+                    txtshow.Text = (num1 - num2).ToString("0.00");
+                    txtlog.AppendText((num1 - num2).ToString("0.00") + Environment.NewLine);
                 }
                 else if (oper == "*")
                 {
-                    txtshow.Text = (num1 * num2).ToString();
-                    txtlog.AppendText((num1 * num2).ToString() + Environment.NewLine);
+                    txtshow.Text = (num1 * num2).ToString("0.00");
+                    txtlog.AppendText((num1 * num2).ToString("0.00") + Environment.NewLine);
                 }
-            }
+                else if (oper == "/")
+                {
+                    txtshow.Text = (num1 / num2).ToString("0.00");
+                    txtlog.AppendText((num1 / num2).ToString("0.00") + Environment.NewLine);
+                }
+                else if (oper == "^")
+                {
+                    txtshow.Text = Math.Pow(num1,num2).ToString("0.00");
+                    txtlog.AppendText((Math.Pow(num1, num2)).ToString("0.00") + Environment.NewLine);
+                }
+                
+                 }
         }
 
         private void btndelete_Click(object sender, EventArgs e)
@@ -183,16 +148,77 @@ namespace HelloWorld
         {
             if (txtshow.Text.Length > 0)
             {
-                num1 = int.Parse(txtshow.Text);
+                num1 = Double.Parse(txtshow.Text);
                 txtshow.Text = "";
                 oper = "*";
-                txtlog.AppendText(num1.ToString() + Environment.NewLine + "*" + Environment.NewLine);
+                txtlog.AppendText(num1.ToString() + "*" );
             }
         }
 
         private void txtlog_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDiv_Click(object sender, EventArgs e)
+        {
+            if (txtshow.Text.Length > 0)
+            {
+                num1 = Double.Parse(txtshow.Text);
+                txtshow.Text = "";
+                oper = "/";
+                txtlog.AppendText(num1.ToString() + "/" );
+            }
+        }
+
+        private void btnDot_Click(object sender, EventArgs e)
+        {
+            txtshow.AppendText(".");
+        }
+
+        private void btnAC_Click(object sender, EventArgs e)
+        {
+            txtshow.Text = "";
+        }
+
+     
+        private void btnPow_Click(object sender, EventArgs e)
+        {
+            if (txtshow.Text.Length > 0)
+            {
+                num1 = Double.Parse(txtshow.Text);
+                txtshow.Text = "";
+                oper = "^";
+                txtlog.AppendText(num1.ToString() + "^");
+            }
+        }
+
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+            if (txtshow.Text.Length > 0)
+            {
+                num1 = Double.Parse(txtshow.Text);
+                var Result = Math.Sqrt(num1);
+                txtshow.Text = Math.Sqrt(num1).ToString();
+                oper = "Sqrt";
+                txtlog.AppendText("Sqrt(" + num1 + ")=" +Result + Environment.NewLine);
+            }
+        }
+
+        private void btnFact_Click(object sender, EventArgs e)
+        {
+            if (txtshow.Text.Length > 0)
+            {
+                num1 = int.Parse(txtshow.Text);
+                var num2 = num1;
+                for (int i = 1; i < num1; i++)
+                {
+                    num2 = num2 * i;
+                }
+                txtshow.Text =num2.ToString();
+                oper = "!";
+                txtlog.AppendText(num1+"!="+num2 + Environment.NewLine);
+            }
         }
     }
 }

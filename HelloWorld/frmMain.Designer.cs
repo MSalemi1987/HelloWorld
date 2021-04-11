@@ -29,6 +29,7 @@ namespace HelloWorld
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
@@ -309,6 +310,7 @@ namespace HelloWorld
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btn1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Text = "Project Hello V 1.1";
             this.Load += new System.EventHandler(this.frmMain_Load);
